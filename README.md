@@ -28,6 +28,9 @@ Utilisez 'script_convert_ascii_to_json.sh' pour lancer le script php 'convert_as
 <pre>$> sh script_convert_ascii_to_json.sh</pre>
 Exemple de fichier générer dans le dossier FICHIERS_JSON.
 
+# Etape 4
+Convert JSON to CSV.
+Script soon.
 
 # Neo4J
 # Etape 1
