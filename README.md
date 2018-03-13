@@ -4,7 +4,7 @@ Pour récupérer les fichier 'display_song.py' et 'hdf5_getters.py' :
 <pre>https://github.com/tbertinmahieux/MSongsDB</pre>
 Merci à lui.
 
-Pour télécharger les Datasets :
+Pour télécharger les Datasets (MillionSongSubset 10 000 songs) :
 <pre># Direct download :
 http://static.echonest.com/millionsongsubset_full.tar.gz
 
