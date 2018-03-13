@@ -27,3 +27,9 @@ Exemple de fichier générer dans le dossier FICHIER.
 Utilisez 'script_convert_ascii_to_json.sh' pour lancer le script php 'convert_ascii_to_json.php' :
 <pre>$> sh script_convert_ascii_to_json.sh</pre>
 Exemple de fichier générer dans le dossier FICHIERS_JSON.
+
+
+# Neo4J
+# Etape 1
+
+Installation :
