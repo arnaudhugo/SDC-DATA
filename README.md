@@ -1,6 +1,8 @@
 # SDC-DATA
 
+Pour récupérer les fichier 'display_song.py' et 'hdf5_getters.py' :
 <pre>https://github.com/tbertinmahieux/MSongsDB</pre>
+Merci à lui.
 
 # Etape 1
 Pour copier tout les fichier .h5 dans le même dossier :
