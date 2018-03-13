@@ -4,6 +4,7 @@ Pour récupérer les fichier 'display_song.py' et 'hdf5_getters.py' :
 <pre>https://github.com/tbertinmahieux/MSongsDB</pre>
 Merci à lui.
 
+# Extraction des données depuis les Datasets
 # Etape 1
 Pour copier tout les fichier .h5 dans le même dossier :
 <pre>$> find -name "*.h5" -exec cp {} ./DESTINATION \;</pre>
