@@ -7,6 +7,8 @@ Merci à lui.
 # Etape 1
 Pour copier tout les fichier .h5 dans le même dossier :
 <pre>$> find -name "*.h5" -exec cp {} ./DESTINATION \;</pre>
+Pour être sur d'avoir le bon nombre utilisez :
+<pre>$> ls ./DOSSIER | wc -l</pre>
 
 # Etape 2
 Utilisez 'script_python_h5_to_ascii.sh' pour lancer le script pyhon 'display_song.py' :
