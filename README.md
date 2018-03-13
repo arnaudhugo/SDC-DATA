@@ -4,6 +4,13 @@ Pour récupérer les fichier 'display_song.py' et 'hdf5_getters.py' :
 <pre>https://github.com/tbertinmahieux/MSongsDB</pre>
 Merci à lui.
 
+Pour télécharger les Datasets :
+<pre># Direct download :
+http://static.echonest.com/millionsongsubset_full.tar.gz
+
+# Depuis le site :
+https://labrosa.ee.columbia.edu/millionsong/pages/getting-dataset#subset</pre>
+
 # Extraction des données depuis les Datasets
 # Etape 1
 Pour copier tout les fichier .h5 dans le même dossier :
