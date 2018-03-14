@@ -37,9 +37,29 @@ Script soon.
 
 Pour installer 'openjdk-8-jre-headless' :
 <pre># En Root :
-echo "deb http://http.debian.net/debian jessie-backports main" > /etc/apt/sources.list.d/jessie-backports.list
+$> echo "deb http://http.debian.net/debian jessie-backports main" > /etc/apt/sources.list.d/jessie-backports.list
 
-sudo apt-get update
-sudo apt-get install -t jessie-backports openjdk-8-jre-headless</pre>
+$> sudo apt-get update
+$> sudo apt-get install -t jessie-backports openjdk-8-jre-headless</pre>
 
 Installation :
+<pre>$> wget -O - https://debian.neo4j.org/neotechnology.gpg.key | sudo apt-key add -
+$> echo 'deb http://debian.neo4j.org/repo stable/' >/tmp/neo4j.list
+$> mv /tmp/neo4j.list /etc/apt/sources.list.d
+
+$> apt-get update
+$> apt-get install neo4j=3.1.4
+
+$> service neo4j status</pre>
+
+Configuration :
+<pre>$> nano /etc/neo4j/neo4j.conf 
+
+# Décommentez :
+dbms.security.auth_enabled=false
+
+# Décommentez et modifiez :
+dbms.connector.bolt.listen_address=0.0.0.0:7687
+dbms.connector.http.listen_address=YOUR_IP:7474</pre>
+
+Allez sur : http://YOUR_IP:7474/browser/
