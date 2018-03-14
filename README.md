@@ -40,8 +40,6 @@ Pour installer 'openjdk-8-jre-headless' :
 echo "deb http://http.debian.net/debian jessie-backports main" > /etc/apt/sources.list.d/jessie-backports.list
 
 sudo apt-get update
-sudo apt-get install -t jessie-backports openjdk-8-jre-headless
-
-sudo /usr/sbin/update-java-alternatives -s java-1.8.0-openjdk-amd64</pre>
+sudo apt-get install -t jessie-backports openjdk-8-jre-headless</pre>
 
 Installation :
