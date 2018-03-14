@@ -57,10 +57,14 @@ Configuration :
 
 # Décommentez :
 dbms.security.auth_enabled=false
+dbms.security.allow_csv_import_from_file_urls=true
 
 # Décommentez et modifiez :
 dbms.connector.bolt.listen_address=0.0.0.0:7687
-dbms.connector.http.listen_address=YOUR_IP:7474</pre>
+dbms.connector.http.listen_address=YOUR_IP:7474
+
+# Commentez :
+#dbms.directories.import=/var/lib/neo4j/import</pre>
 
 <pre>$> service neo4j restart</pre>
 
