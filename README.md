@@ -62,4 +62,6 @@ dbms.security.auth_enabled=false
 dbms.connector.bolt.listen_address=0.0.0.0:7687
 dbms.connector.http.listen_address=YOUR_IP:7474</pre>
 
+<pre>$> service neo4j restart</pre>
+
 Allez sur : http://YOUR_IP:7474/browser/
