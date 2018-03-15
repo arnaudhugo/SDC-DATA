@@ -37,7 +37,7 @@ On utilise le site :
 Exemple de fichier générer dans le dossier ALL_DATA_CSV.csv.
 
 ENJOY !!
-![alt tag](https://image.noelshack.com/fichiers/2018/11/4/1521133835-screen-shot-2018-03-15-at-18-09-45.png "Screen")
+![alt tag](https://imgur.com/a/wrMzK "Screen")
 
 # Neo4J
 # Etape 1
