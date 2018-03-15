@@ -71,3 +71,16 @@ dbms.connector.http.listen_address=YOUR_IP:7474
 <pre>$> service neo4j restart</pre>
 
 Allez sur : http://YOUR_IP:7474/browser/
+
+# Etape 2
+
+<pre>LOAD CSV WITH HEADERS FROM "file:/home/robinet/FATCSV.csv" AS line WITH line 
+MERGE (t:Title {title:line.title}) 
+MERGE (a:Artist {name:line.artist_name})
+MERGE (y:Year {year:line.year})
+MERGE (al:Album {album:line.album})
+MERGE (a)<-[:PERFORMS]->(t)
+MERGE (t)-[:RELEASE]->(y)
+MERGE (al)-[:IN_ALBUM]->(t)
+MERGE (a)-[:HAS_ALBUM]->(al)
+RETURN count(*);</pre>
