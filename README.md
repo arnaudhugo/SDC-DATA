@@ -83,6 +83,7 @@ MERGE (t:Title {title:row.title})
 MERGE (y:Year {year:row.year})
 
 MERGE (a)<-[:PERFORMS]->(t)
+MERGE (a_id)-[:ARTIST_ID]->(a)
 MERGE (t)-[:RELEASE]->(y)
 MERGE (al)-[:IN_ALBUM]->(t)
 MERGE (a)-[:HAS_ALBUM]->(al)
