@@ -14,19 +14,21 @@ https://labrosa.ee.columbia.edu/millionsong/pages/getting-dataset#subset</pre>
 # Extraction des données depuis les Datasets
 # Etape 1
 Pour copier tout les fichier .h5 dans le même dossier :
-<pre>$> find -name "*.h5" -exec cp {} ./DESTINATION \;</pre>
+<pre>$> find -name "*.h5" -exec cp {} ./ALL_FILES/FICHIERS_H5/ \;</pre>
 Pour être sur d'avoir le bon nombre utilisez :
 <pre>$> ls ./DOSSIER | wc -l</pre>
 
 # Etape 2
 Utilisez 'script_python_h5_to_ascii.sh' pour lancer le script pyhon 'display_song.py' :
 <pre>$> sh script_python_h5_to_ascii.sh</pre>
-Exemple de fichier générer dans le dossier FICHIER.
+Exemple de fichier générer dans le dossier /ALL_FILES/FICHIERS_ASCII/.
 
 # Etape 3
 Utilisez 'script_convert_ascii_to_json.sh' pour lancer le script php 'convert_ascii_to_json.php' :
 <pre>$> sh script_convert_ascii_to_json.sh</pre>
-Exemple de fichier générer dans le dossier FICHIERS_JSON.
+Exemple de fichier générer dans le dossier /ALL_FILES/FICHIERS_JSON/.
+
+Uptade : Le script 'script_convert_ascii_to_json.sh' créer un seul fichier contenant toutes les data 'ALL_DATA_JSON.json'
 
 # Etape 4
 Convert JSON to CSV.
