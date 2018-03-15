@@ -31,8 +31,8 @@ Exemple de fichier générer dans le dossier /ALL_FILES/FICHIERS_JSON/.
 Uptade : Le script 'script_convert_ascii_to_json.sh' créer un seul fichier contenant toutes les data 'ALL_DATA_JSON.json'
 
 # Etape 4
-Convert JSON to CSV.
-Script soon.
+
+Fichier : ALL_DATA_CSV.csv
 
 # Neo4J
 # Etape 1
