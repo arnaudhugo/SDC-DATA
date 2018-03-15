@@ -74,13 +74,25 @@ Allez sur : http://YOUR_IP:7474/browser/
 
 # Etape 2
 
-<pre>LOAD CSV WITH HEADERS FROM "file:/home/robinet/FATCSV.csv" AS line WITH line 
-MERGE (t:Title {title:line.title}) 
-MERGE (a:Artist {name:line.artist_name})
-MERGE (y:Year {year:line.year})
-MERGE (al:Album {album:line.album})
+<pre>LOAD CSV WITH HEADERS FROM "file:/home/robinet/FATCSV.csv" AS row WITH row
+MERGE (al:Album {album:row.album})
+MERGE (a_id:Artist_id {artist_id:row.artist_id})
+MERGE (a:Artist {artist:row.artist_name})
+MERGE (d:Duration {duration:row.duration})
+MERGE (t:Title {title:row.title})
+MERGE (y:Year {year:row.year})
+
 MERGE (a)<-[:PERFORMS]->(t)
 MERGE (t)-[:RELEASE]->(y)
 MERGE (al)-[:IN_ALBUM]->(t)
 MERGE (a)-[:HAS_ALBUM]->(al)
+MERGE (d)-[:DURATION]->(t)
+
+FOREACH (TermName IN split(row.all_terms, ";") |
+	MERGE (term:Term {Term:TermName})
+	MERGE (t)-[:TERM]->(term))
+
+FOREACH (ArtistsSimilar IN split(row.similar_artists, ";") |
+	MERGE (a_id_similar:Artist_id_similar {Artist_id_similar:ArtistsSimilar})
+	MERGE (a)-[:SIMILAR]->(a_id_similar))
 RETURN count(*);</pre>
