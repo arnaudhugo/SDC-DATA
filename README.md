@@ -32,7 +32,9 @@ Uptade : Le script 'script_convert_ascii_to_json.sh' créer un seul fichier cont
 
 # Etape 4
 
-Fichier : ALL_DATA_CSV.csv
+On utilise le site :
+<pre>https://codebeautify.org/json-to-csv</pre>
+Exemple de fichier générer dans le dossier ALL_DATA_CSV.csv.
 
 # Neo4J
 # Etape 1
