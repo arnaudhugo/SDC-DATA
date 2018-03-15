@@ -36,9 +36,6 @@ On utilise le site :
 <pre>https://codebeautify.org/json-to-csv</pre>
 Exemple de fichier générer dans le dossier ALL_DATA_CSV.csv.
 
-ENJOY !!
-![alt tag](https://i.imgur.com/eDyoxtj.jpg "Screen")
-
 # Neo4J
 # Etape 1
 
@@ -102,3 +99,6 @@ FOREACH (ArtistsSimilar IN split(row.similar_artists, ";") |
 	MERGE (a_id_similar:Artist_id_similar {Artist_id_similar:ArtistsSimilar})
 	MERGE (a)-[:SIMILAR]->(a_id_similar))
 RETURN count(*);</pre>
+
+ENJOY !!
+![alt tag](https://i.imgur.com/eDyoxtj.jpg "Screen")
