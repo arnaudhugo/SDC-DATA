@@ -127,6 +127,17 @@ ENJOY !!
 
 # API 
 
+# ETAPE 1
+
+Installation :
+
+<pre>$> apt-get install easy_install</pre>
+<pre>easy_install pip</pre>
+<pre>pip install bottle</pre>
+<pre>pip install neo4jrestclient</pre>
+
+# ETAPE 2 - ROUTES
+
 Récupérer tout les genres :
 <pre>http://YOUR_IP:5000/api/all/genre/</pre>
 
