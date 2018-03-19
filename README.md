@@ -132,9 +132,9 @@ ENJOY !!
 Installation :
 
 <pre>$> apt-get install easy_install</pre>
-<pre>easy_install pip</pre>
-<pre>pip install bottle</pre>
-<pre>pip install neo4jrestclient</pre>
+<pre>$> easy_install pip</pre>
+<pre>$> pip install bottle</pre>
+<pre>$> pip install neo4jrestclient</pre>
 
 # ETAPE 2 - ROUTES
 
