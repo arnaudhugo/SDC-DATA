@@ -127,7 +127,7 @@ ENJOY !!
 
 # API 
 
-# ETAPE 1
+# Etape 1
 
 Installation :
 
@@ -136,7 +136,7 @@ Installation :
 <pre>$> pip install bottle</pre>
 <pre>$> pip install neo4jrestclient</pre>
 
-# ETAPE 2 - ROUTES
+# Etape 2 - ROUTES
 
 Récupérer tout les genres :
 <pre>http://YOUR_IP:5000/api/all/genre/</pre>
