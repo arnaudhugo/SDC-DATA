@@ -131,4 +131,7 @@ Récupérer tout les genres :
 <pre>http://172.16.1.64:5000/api/all/genre/</pre>
 
 Récupérer l'artiste et le titre des musiques en fonction du 'genre' et du 'nombre' de musique voulu :
-<pre>http://172.16.1.64:5000/api/genre/'genre'/'nombre'</pre>
+<pre>http://172.16.1.64:5000/api/genre/'genre'/'number'</pre>
+
+Récupérer le 'nombre' voulu de titre d'un artiste (s'il y en à plusieurs) :
+<pre>http://172.16.1.64:5000/api/artist/'artist_name'/'number'</pre>
