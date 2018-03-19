@@ -126,3 +126,5 @@ ENJOY !!
 ![alt tag](https://i.imgur.com/eDyoxtj.jpg "Screen")
 
 # API 
+
+<pre>http://172.16.1.64:5000/api/genre/\<genre\>/\<nombre\></pre>
