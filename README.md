@@ -127,4 +127,4 @@ ENJOY !!
 
 # API 
 
-<pre>http://172.16.1.64:5000/api/genre/\<genre\>/\<nombre\></pre>
+<pre>http://172.16.1.64:5000/api/genre/'genre'/'nombre'</pre>
