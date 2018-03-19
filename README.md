@@ -119,7 +119,7 @@ RETURN count(*);</pre>
 Schéma des liaisons :
 ![alt tag](https://image.noelshack.com/fichiers/2018/12/1/1521464799-screen-shot-2018-03-19-at-14-05-53.png "Screen")
 
-Augmenter le nombres de nodes affichable dans Neo4j:
+Augmenter le nombres de nodes affichable dans Neo4j :
 <pre>:config initialNodeDisplay: 10000</pre>
 
 ENJOY !!
@@ -127,5 +127,8 @@ ENJOY !!
 
 # API 
 
-Récupérer l'artist et le titre des musiques en fonction du 'genre' et du 'nombre' de musique voulu:
+Récupérer tout les genres :
+<pre>http://172.16.1.64:5000/api/all/genre/</pre>
+
+Récupérer l'artist et le titre des musiques en fonction du 'genre' et du 'nombre' de musique voulu :
 <pre>http://172.16.1.64:5000/api/genre/'genre'/'nombre'</pre>
