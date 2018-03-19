@@ -76,18 +76,18 @@ Allez sur : http://YOUR_IP:7474/browser/
 
 # Etape 2
 
-<pre>LOAD CSV WITH HEADERS FROM "file:/home/robinet/csv/artists_id.csv" AS row
+<pre>LOAD CSV WITH HEADERS FROM "file:/ALL_FILES/CSV/artists_id.csv" AS row
 CREATE (a:Artist {artist_id:row.artist_id})</pre>
 
-<pre>LOAD CSV WITH HEADERS FROM "file:/home/robinet/csv/genres.csv" AS row
+<pre>LOAD CSV WITH HEADERS FROM "file:/ALL_FILES/CSV/genres.csv" AS row
 CREATE (g:Genre {name:row.mbtag})</pre>
 
-<pre>LOAD CSV WITH HEADERS FROM "file:/home/robinet/csv/artist_genre.csv" AS row
+<pre>LOAD CSV WITH HEADERS FROM "file:/ALL_FILES/CSV/artist_genre.csv" AS row
 MATCH (a:Artist {artist_id:row.artist_id}), (g:Genre {name:row.mbtag})
 MERGE (a)-[:HAS_GENRE]->(g)</pre>
 
 <pre>USING PERIODIC COMMIT 50
-LOAD CSV WITH HEADERS FROM "file:/home/robinet/csv/ALL_DATA_CSV.csv" AS row
+LOAD CSV WITH HEADERS FROM "file:/ALL_FILES/CSV/ALL_DATA_CSV.csv" AS row
 
 MERGE (m:Music {title: row.title, duration: row.duration})
 WITH m, row
@@ -128,10 +128,10 @@ ENJOY !!
 # API 
 
 Récupérer tout les genres :
-<pre>http://172.16.1.64:5000/api/all/genre/</pre>
+<pre>http://YOUR_IP:5000/api/all/genre/</pre>
 
 Récupérer l'artiste et le titre des musiques en fonction du 'genre' et du 'nombre' de musique voulu :
-<pre>http://172.16.1.64:5000/api/genre/'genre'/'number'</pre>
+<pre>http://YOUR_IP:5000/api/genre/'genre'/'number'</pre>
 
 Récupérer le 'nombre' voulu de titre d'un artiste (s'il y en à plusieurs) :
-<pre>http://172.16.1.64:5000/api/artist/'artist_name'/'number'</pre>
+<pre>http://YOUR_IP:5000/api/artist/'artist_name'/'number'</pre>
