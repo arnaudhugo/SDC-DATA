@@ -77,13 +77,13 @@ Allez sur : http://YOUR_IP:7474/browser/
 # Etape 2
 
 <pre>LOAD CSV WITH HEADERS FROM "file:/home/robinet/csv/artists_id.csv" AS row
-CREATE (a:Artist { artist_id: row.artist_id })</pre>
+CREATE (a:Artist {artist_id:row.artist_id})</pre>
 
 <pre>LOAD CSV WITH HEADERS FROM "file:/home/robinet/csv/genres.csv" AS row
-CREATE (g:Genre { name: row.mbtag })</pre>
+CREATE (g:Genre {name:row.mbtag})</pre>
 
 <pre>LOAD CSV WITH HEADERS FROM "file:/home/robinet/csv/artist_genre.csv" AS row
-MATCH (a:Artist {artist_id:row.artist_id}), (g:Genre {name: row.mbtag})
+MATCH (a:Artist {artist_id:row.artist_id}), (g:Genre {name:row.mbtag})
 MERGE (a)-[:HAS_GENRE]->(g)</pre>
 
 <pre>USING PERIODIC COMMIT 50
@@ -91,27 +91,27 @@ LOAD CSV WITH HEADERS FROM "file:/home/robinet/csv/ALL_DATA_CSV.csv" AS row
 
 MERGE (m:Music {title: row.title, duration: row.duration})
 WITH m, row
-MATCH (a:Artist {artist_id: row.artist_id})
+MATCH (a:Artist {artist_id:row.artist_id})
 MERGE (a)-[:OWNS]->(m)
 SET a.name = row.artist_name
 
 MERGE (y:Year {year: row.year})
 MERGE (m)-[:RELEASED_IN]->(y)
 
-MERGE (al:Album {name: row.album})
+MERGE (al:Album {name:row.album})
 MERGE (m)-[:IN]->(al)
 MERGE (a)-[:CREATED]->(al)
 
 WITH a, m, row
 
 UNWIND split(row.all_terms, ';') as genre_instance
-MATCH (g:Genre {name: genre_instance})
+MATCH (g:Genre {name:genre_instance})
 MERGE (m)-[:HAS_GENRE]->(g)
 
 WITH a, m, row
 
 UNWIND split(row.similar_artists, ';') as asi
-MATCH (as:Artist {artist_id: asi})
+MATCH (as:Artist {artist_id:asi})
 MERGE (a)-[:SIMILAR_TO]->(as)
 
 RETURN count(*);</pre>
