@@ -116,5 +116,8 @@ MERGE (a)-[:SIMILAR_TO]->(as)
 
 RETURN count(*);</pre>
 
+Schéma de liaison :
+![alt tag](https://image.noelshack.com/fichiers/2018/12/1/1521464799-screen-shot-2018-03-19-at-14-05-53.png "Screen")
+
 ENJOY !!
 ![alt tag](https://i.imgur.com/eDyoxtj.jpg "Screen")
