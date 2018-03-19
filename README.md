@@ -127,5 +127,5 @@ ENJOY !!
 
 # API 
 
-Artist, titre musique:
+Récupérer l'artist et le titre des musiques en fonction du 'genre' et du 'nombre' de musique voulu:
 <pre>http://172.16.1.64:5000/api/genre/'genre'/'nombre'</pre>
