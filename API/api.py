@@ -5,7 +5,7 @@ from neo4jrestclient import client
 
 import json
 
-gdb = GraphDatabase("http://172.16.1.64:7474/")
+gdb = GraphDatabase("http://YOUR_IP:7474/")
 
 # Return all music with title not null
 @route('/api/')
@@ -37,4 +37,4 @@ def artist(artist, nb):
     results = gdb.query(query, data_contents=True)
     return "{ \"" + artist + "\": [" + (json.dumps(results.rows)).decode('unicode_escape').replace('[', '').replace(']', '') + "]}"
 
-run(host='172.16.1.64', port=5000)
+run(host='YOUR_IP', port=5000)
