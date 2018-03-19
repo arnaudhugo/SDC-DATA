@@ -119,5 +119,10 @@ RETURN count(*);</pre>
 Schéma des liaisons :
 ![alt tag](https://image.noelshack.com/fichiers/2018/12/1/1521464799-screen-shot-2018-03-19-at-14-05-53.png "Screen")
 
+Augmenter le nombres de nodes affichable dans Neo4j:
+<pre>:config initialNodeDisplay: 10000</pre>
+
 ENJOY !!
 ![alt tag](https://i.imgur.com/eDyoxtj.jpg "Screen")
+
+# API 
