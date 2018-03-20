@@ -21,6 +21,13 @@ def all_genres():
     results = gdb.query(query, data_contents=True)
     return "{ \"genres\": [" + (json.dumps(results.rows)).decode('unicode_escape').replace('[', '').replace(']', '') + "]}"
 
+# Return 200 random music
+@route('/api/random/')
+def all_genres():
+    query = "MATCH (g:Genre)<-[:HAS_GENRE]-(a:Artist)-[:OWNS]->(m:Music) WITH g, a, m, rand() AS number RETURN { Genre : g.name, Artist : a.name, Titre : m.title } ORDER BY number LIMIT 200"
+    results = gdb.query(query, data_contents=True)
+    return "{ \"random\": [" + (json.dumps(results.rows)).decode('unicode_escape').replace('[', '').replace(']', '') + "]}"
+
 # Return <nb> of music by <genre>
 @get('/api/genre/<genre>/<nb>')
 def genre(genre, nb):
