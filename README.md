@@ -131,8 +131,7 @@ ENJOY !!
 
 Installation :
 
-<pre>$> apt-get install easy_install</pre>
-<pre>$> easy_install pip</pre>
+<pre>$> apt-get install python-pip</pre>
 <pre>$> pip install bottle</pre>
 <pre>$> pip install neo4jrestclient</pre>
 
@@ -141,8 +140,8 @@ Installation :
 Récupérer tout les genres :
 <pre>http://YOUR_IP:5000/api/all/genre/</pre>
 
-Récupérer 200 musiques random :
-<pre>http://YOUR_IP:5000/api/random/</pre>
+Récupérer 'nombre' musiques random :
+<pre>http://YOUR_IP:5000/api/random/'nombre'</pre>
 
 Récupérer l'artiste et le titre des musiques en fonction du 'genre' et du 'nombre' de musique voulu :
 <pre>http://YOUR_IP:5000/api/genre/'genre'/'number'</pre>
