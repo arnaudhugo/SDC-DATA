@@ -14,22 +14,28 @@ def error404(error):
     return 'Nothing here, sorry !'
 
 # Return all music with title not null
-@route('/api/')
-def index():
+@route('/api/<key>')
+def index(key):
     response.content_type = 'application/json'
     response.headers['Access-Control-Allow-Origin'] = '*'
-    query = "MATCH (n) WHERE n.title IS NOT NULL RETURN n"
-    results = gdb.query(query, data_contents=True)
-    return (json.dumps(results.rows)).decode('unicode_escape')
+    if apikey == key:
+        query = "MATCH (n) WHERE n.title IS NOT NULL RETURN n"
+        results = gdb.query(query, data_contents=True)
+        return (json.dumps(results.rows)).decode('unicode_escape')
+    else:
+        abort(401, "Sorry, access denied.")
 
 # Return all genre
-@route('/api/all/genre/')
-def all_genres():
+@route('/api/all/genre/<key>')
+def all_genres(key):
     response.content_type = 'application/json'
     response.headers['Access-Control-Allow-Origin'] = '*'
-    query = "MATCH (n:Genre) RETURN n.name"
-    results = gdb.query(query, data_contents=True)
-    return "{ \"genres\": [" + (json.dumps(results.rows)).decode('unicode_escape').replace('[', '').replace(']', '') + "]}"
+    if apikey == key:
+        query = "MATCH (n:Genre) RETURN n.name"
+        results = gdb.query(query, data_contents=True)
+        return "{ \"genres\": [" + (json.dumps(results.rows)).decode('unicode_escape').replace('[', '').replace(']', '') + "]}"
+    else:
+        abort(401, "Sorry, access denied.")
 
 # Return 200 random music
 @route('/api/random/<nb>/<key>')
@@ -44,23 +50,29 @@ def all_genres(nb, key):
         abort(401, "Sorry, access denied.")
 
 # Return <nb> of music by <genre>
-@get('/api/genre/<genre>/<nb>')
-def genre(genre, nb):
+@get('/api/genre/<genre>/<nb>/<key>')
+def genre(genre, nb, key):
     response.content_type = 'application/json'
     response.headers['Access-Control-Allow-Origin'] = '*'
     genre = genre.replace('%20', ' ').replace('\'', '\\\'')
-    query = "MATCH (n:Genre {name: '" + genre + "'})<-[:HAS_GENRE]-(artist)-[:OWNS]->(music) RETURN { Artist : artist.name, Titre : music.title } LIMIT " + nb + ""
-    results = gdb.query(query, data_contents=True)
-    return "{ \"" + genre + "\": [" + (json.dumps(results.rows)).decode('unicode_escape').replace('[', '').replace(']', '') + "]}"
+    if apikey == key:
+        query = "MATCH (n:Genre {name: '" + genre + "'})<-[:HAS_GENRE]-(artist)-[:OWNS]->(music) RETURN { Artist : artist.name, Titre : music.title } LIMIT " + nb + ""
+        results = gdb.query(query, data_contents=True)
+        return "{ \"" + genre + "\": [" + (json.dumps(results.rows)).decode('unicode_escape').replace('[', '').replace(']', '') + "]}"
+    else:
+        abort(401, "Sorry, access denied.")
 
 # Return <nb> of music by <artist>
-@get('/api/artist/<artist>/<nb>')
-def artist(artist, nb):
+@get('/api/artist/<artist>/<nb>/<key>')
+def artist(artist, nb, key):
     response.content_type = 'application/json'
     response.headers['Access-Control-Allow-Origin'] = '*'
     artist = artist.replace('%20', ' ').replace('\'', '\\\'')
-    query = "MATCH (m:Music)<-[:OWNS]-(a:Artist {name: '" + artist + "'}) RETURN m.title LIMIT " + nb + ""
-    results = gdb.query(query, data_contents=True)
-    return "{ \"" + artist + "\": [" + (json.dumps(results.rows)).decode('unicode_escape').replace('[', '').replace(']', '') + "]}"
+    if apikey == key:
+        query = "MATCH (m:Music)<-[:OWNS]-(a:Artist {name: '" + artist + "'}) RETURN m.title LIMIT " + nb + ""
+        results = gdb.query(query, data_contents=True)
+        return "{ \"" + artist + "\": [" + (json.dumps(results.rows)).decode('unicode_escape').replace('[', '').replace(']', '') + "]}"
+    else:
+        abort(401, "Sorry, access denied.")
 
 run(host='172.16.1.171', port=5000)
