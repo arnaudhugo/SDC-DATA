@@ -1,11 +1,17 @@
-from bottle import run, route, get, post, response
+from bottle import run, route, get, post, response, error, abort
 
 from neo4jrestclient.client import GraphDatabase
 from neo4jrestclient import client
 
 import json
 
+apikey = 'e494554e-707c-47fb-94d3-881657f2023a'
+
 gdb = GraphDatabase("http://172.16.1.171:7474/")
+
+@error(404)
+def error404(error):
+    return 'Nothing here, sorry !'
 
 # Return all music with title not null
 @route('/api/')
@@ -26,13 +32,16 @@ def all_genres():
     return "{ \"genres\": [" + (json.dumps(results.rows)).decode('unicode_escape').replace('[', '').replace(']', '') + "]}"
 
 # Return 200 random music
-@route('/api/random/<nb>')
-def all_genres(nb):
+@route('/api/random/<nb>/<key>')
+def all_genres(nb, key):
     response.content_type = 'application/json'
     response.headers['Access-Control-Allow-Origin'] = '*'
-    query = "MATCH (g:Genre)<-[:HAS_GENRE]-(a:Artist)-[:OWNS]->(m:Music) WITH g, a, m, rand() AS number RETURN { Genre : g.name, Artist : a.name, Titre : m.title } ORDER BY number LIMIT " + nb + ""
-    results = gdb.query(query, data_contents=True)
-    return "{ \"random\": [" + (json.dumps(results.rows)).decode('unicode_escape').replace('[', '').replace(']', '') + "]}"
+    if apikey == key:
+        query = "MATCH (g:Genre)<-[:HAS_GENRE]-(a:Artist)-[:OWNS]->(m:Music) WITH g, a, m, rand() AS number RETURN { Genre : g.name, Artist : a.name, Titre : m.title } ORDER BY number LIMIT " + nb + ""
+        results = gdb.query(query, data_contents=True)
+        return "{ \"random\": [" + (json.dumps(results.rows)).decode('unicode_escape').replace('[', '').replace(']', '') + "]}"
+    else:
+        abort(401, "Sorry, access denied.")
 
 # Return <nb> of music by <genre>
 @get('/api/genre/<genre>/<nb>')
