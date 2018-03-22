@@ -138,13 +138,13 @@ Installation :
 # Etape 2 - ROUTES
 
 Récupérer tout les genres :
-<pre>http://YOUR_IP:5000/api/all/genre/</pre>
+<pre>http://YOUR_IP:5000/api/all/genre/'YOUR_API_KEY'</pre>
 
 Récupérer 'nombre' musiques random :
-<pre>http://YOUR_IP:5000/api/random/'nombre'</pre>
+<pre>http://YOUR_IP:5000/api/random/'nombre'/'YOUR_API_KEY'</pre>
 
 Récupérer l'artiste et le titre des musiques en fonction du 'genre' et du 'nombre' de musique voulu :
-<pre>http://YOUR_IP:5000/api/genre/'genre'/'number'</pre>
+<pre>http://YOUR_IP:5000/api/genre/'genre'/'number'/'YOUR_API_KEY'</pre>
 
 Récupérer le 'nombre' voulu de titre d'un artiste (s'il y en à plusieurs) :
-<pre>http://YOUR_IP:5000/api/artist/'artist_name'/'number'</pre>
+<pre>http://YOUR_IP:5000/api/artist/'artist_name'/'number'/'YOUR_API_KEY'</pre>
