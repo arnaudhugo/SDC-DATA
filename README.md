@@ -117,7 +117,7 @@ MERGE (a)-[:SIMILAR_TO]->(as)
 RETURN count(*);</pre>
 
 Schéma des liaisons :
-![alt tag](https://puu.sh/zN7uw/4249cfff17.png "Screen")
+![alt tag](https://puu.sh/zN7D6/07e00888f2.png "Screen")
 
 Augmenter le nombres de nodes affichable dans Neo4j :
 <pre>:config initialNodeDisplay: 10000</pre>
