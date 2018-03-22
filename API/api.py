@@ -5,7 +5,7 @@ from neo4jrestclient import client
 
 import json
 
-apikey = 'e494554e-707c-47fb-94d3-881657f2023a'
+apikey = 'YOUR_API_KEY'
 
 gdb = GraphDatabase("http://172.16.1.171:7474/")
 
