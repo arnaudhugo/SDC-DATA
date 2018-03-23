@@ -7,7 +7,7 @@ import json
 
 apikey = 'YOUR_API_KEY'
 
-gdb = GraphDatabase("http://172.16.1.171:7474/")
+gdb = GraphDatabase("http://YOUR_IP:7474/")
 
 @error(404)
 def error404(error):
@@ -75,4 +75,4 @@ def artist(artist, nb, key):
     else:
         abort(401, "Sorry, access denied.")
 
-run(host='172.16.1.171', port=5000)
+run(host='YOUR_IP', port=5000)
